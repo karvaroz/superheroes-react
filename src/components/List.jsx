@@ -1,6 +1,7 @@
 //rafc snippet componente de funcion
 
 import React, { Component } from "react";
+import { Container } from "react-bootstrap";
 import Cards from "./Cards";
 
 export default class List extends Component {
@@ -39,13 +40,24 @@ export default class List extends Component {
 
   render() {
     // Para llamar el estado
-    console.log(this.state.superHeroes);
+    // console.log(this.state.superHeroes);
     return (
-      <div>
-        {this.state.superHeroes.map((heroe, index) => {
-          return <Cards heroe={heroe} key={index}/>;
-        })}
-      </div>
+      <Container>
+        <h1 style={{ color: "white" }}>Lista de super heroes</h1>
+        <hr />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            gap: "30px",
+          }}
+        >
+          {this.state.superHeroes.map((heroe, index) => (
+            <Cards heroe={heroe} key={index} />
+          ))}
+        </div>
+      </Container>
     );
   }
 }
